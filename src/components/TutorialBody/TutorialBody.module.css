@@ -1,0 +1,295 @@
+/* ---------- Текст ---------- */
+.text-body {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+  margin-bottom: 2rem;
+}
+
+.text-step {
+  color: var(--text-secondary);
+  padding-left: 1.5rem;
+  line-height: 1.7;
+}
+
+.text-substep {
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+/* ---------- Картинки ---------- */
+.image-body {
+  margin-bottom: 1.5rem;
+}
+
+.image-step,
+.image-substep {
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+/* ---------- Нумерованный список ---------- */
+.list {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.list h3 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.list ol {
+  list-style: none;
+  counter-reset: list-counter;
+}
+
+.list li {
+  counter-increment: list-counter;
+  padding-left: 2.5rem;
+  position: relative;
+  margin-bottom: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.list li::before {
+  content: counter(list-counter);
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+/* ---------- Основные шаги ---------- */
+.steps {
+  list-style: none;
+  counter-reset: step-counter;
+}
+
+.step {
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+  position: relative;
+  counter-increment: step-counter;
+}
+
+.step::before {
+  content: counter(step-counter);
+  position: absolute;
+  left: -14px;
+  top: 1.5rem;
+  width: 28px;
+  height: 28px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.813rem;
+  font-weight: 600;
+}
+
+.step h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  padding-left: 1.5rem;
+}
+
+/* ---------- Дополнительный раздел шагов (variant: 'secondary') ---------- */
+.substepsSection {
+  margin-top: 2rem;
+}
+
+.substeps {
+  list-style: none;
+  margin-top: 1rem;
+}
+
+.substep {
+  padding: 1.25rem;
+  margin-bottom: 1.25rem;
+  background: var(--bg-tertiary);
+  border-radius: 8px;
+  border-left: 3px solid #9c27b0;
+}
+
+.substep h4 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.substepNumber {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: #9c27b0;
+  color: white;
+  border-radius: 50%;
+  font-size: 0.813rem;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+/* ---------- Выделенные блоки ---------- */
+.callout {
+  border-radius: 8px;
+  line-height: 1.7;
+}
+
+.callout-body {
+  margin: 2rem 0;
+  padding: 1.5rem;
+}
+
+.callout-step,
+.callout-substep {
+  margin-top: 1rem;
+  padding: 1rem 1.5rem;
+  border-radius: 6px;
+}
+
+.calloutLabel {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.callout-body .calloutLabel {
+  font-size: 1.125rem;
+}
+
+.calloutImage {
+  margin-top: 1rem;
+  border-radius: 6px;
+}
+
+.callout-solution {
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.callout-solution .calloutLabel {
+  color: var(--accent);
+}
+
+.callout-tip {
+  background: #e8f5e9;
+  border-left: 4px solid #4caf50;
+  color: var(--text-primary);
+}
+
+.callout-tip .calloutLabel {
+  color: #2e7d32;
+}
+
+.callout-note {
+  background: #e3f2fd;
+  border-left: 4px solid #2196f3;
+  color: var(--text-primary);
+}
+
+.callout-note .calloutLabel {
+  color: #1565c0;
+}
+
+.callout-hint {
+  background: #fff3cd;
+  border-left: 4px solid #ffc107;
+  color: var(--text-primary);
+}
+
+/* Как на старом сайте: жирный текст в подсказке — отдельной строкой и цветом. */
+.callout-hint strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #856404;
+}
+
+:global([data-theme='dark']) .callout-hint strong {
+  color: #ffc107;
+}
+
+.callout-warning {
+  background: #fff3e0;
+  border-left: 4px solid #ff9800;
+  color: var(--text-secondary);
+  line-height: 1.8;
+}
+
+.callout-body.callout-warning {
+  margin: 0 0 2rem;
+  padding: 1rem 1.25rem;
+}
+
+.callout-info {
+  background: var(--bg-tertiary);
+  color: var(--text-primary);
+  line-height: 1.8;
+}
+
+.callout-body.callout-info {
+  margin: 0 0 1rem;
+  padding: 1.25rem;
+}
+
+.callout-conclusion {
+  background: var(--bg-tertiary);
+  border-left: 4px solid #4caf50;
+}
+
+.callout-body.callout-conclusion {
+  margin: 2rem 0 0;
+}
+
+.callout-conclusion h3 {
+  font-size: 1.125rem;
+  margin-bottom: 0.75rem;
+  color: #4caf50;
+}
+
+:global([data-theme='dark']) .callout-tip {
+  background: rgba(76, 175, 80, 0.15);
+}
+
+:global([data-theme='dark']) .callout-tip .calloutLabel {
+  color: #4caf50;
+}
+
+:global([data-theme='dark']) .callout-note {
+  background: rgba(33, 150, 243, 0.15);
+}
+
+:global([data-theme='dark']) .callout-note .calloutLabel {
+  color: #2196f3;
+}
+
+:global([data-theme='dark']) .callout-hint {
+  background: rgba(255, 193, 7, 0.15);
+}
+
+:global([data-theme='dark']) .callout-warning {
+  background: rgba(255, 152, 0, 0.15);
+}
