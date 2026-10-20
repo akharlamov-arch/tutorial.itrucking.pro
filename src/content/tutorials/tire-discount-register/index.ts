@@ -7,7 +7,7 @@ export default defineTutorial({
   order: 8,
   title: {
     ru: 'Как зарегистрироваться в дисконтной программе на шины?',
-    en: 'How to Register for the Tire Discount Program?',
+    en: 'How to register for the tire discount program?',
   },
   description: {
     ru: 'Простая инструкция по регистрации в программе скидок на шины',
@@ -30,7 +30,7 @@ export default defineTutorial({
       type: 'list',
       title: {
         ru: 'Инструкция по заполнению формы:',
-        en: 'Form Filling Instructions:',
+        en: 'Form filling instructions:',
       },
       items: [
         {

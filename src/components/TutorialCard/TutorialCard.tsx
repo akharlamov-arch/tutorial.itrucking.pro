@@ -41,6 +41,11 @@ export function TutorialCard({ tutorial }: { tutorial: Tutorial }) {
       <div className={styles.content}>
         <div className={styles.meta}>
           <Badge>{getCategory(tutorial.category).name[lang]}</Badge>
+          {tutorial.badges?.map((badge) => (
+            <Badge key={badge.en} tone="highlight">
+              {badge[lang]}
+            </Badge>
+          ))}
         </div>
         <h3 className={styles.title}>{title}</h3>
         <p className={styles.description}>{tutorial.description[lang]}</p>

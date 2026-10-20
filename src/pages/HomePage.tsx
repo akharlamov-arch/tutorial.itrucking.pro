@@ -1,4 +1,3 @@
-import { useMemo, useState } from 'react';
 import { Outlet, useSearchParams } from 'react-router';
 import { CategoryFilter } from '@/components/CategoryFilter/CategoryFilter';
 import { Footer } from '@/components/Footer/Footer';
@@ -7,13 +6,9 @@ import { Hero } from '@/components/Hero/Hero';
 import { TutorialGrid } from '@/components/TutorialGrid/TutorialGrid';
 import { tutorials } from '@/content';
 import { isCategoryId, type CategoryId } from '@/content/categories';
-import { useI18n } from '@/i18n/context';
-import { filterTutorials } from '@/lib/search';
 
 /** Главная: список туториалов. Открытый туториал рендерится поверх через <Outlet />. */
 export function HomePage() {
-  const { lang } = useI18n();
-  const [query, setQuery] = useState('');
   const [searchParams, setSearchParams] = useSearchParams();
 
   const categoryParam = searchParams.get('category');
@@ -21,16 +16,14 @@ export function HomePage() {
   const setCategory = (value: CategoryId | 'all') =>
     setSearchParams(value === 'all' ? {} : { category: value });
 
-  const visible = useMemo(
-    () => filterTutorials(tutorials, { query, category, lang }),
-    [query, category, lang],
-  );
+  const visible =
+    category === 'all' ? tutorials : tutorials.filter((tutorial) => tutorial.category === category);
 
   return (
     <>
       <Header />
       <main>
-        <Hero query={query} onQueryChange={setQuery} />
+        <Hero />
         <CategoryFilter value={category} onChange={setCategory} />
         <TutorialGrid tutorials={visible} />
       </main>

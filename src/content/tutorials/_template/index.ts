@@ -12,12 +12,13 @@ import { defineTutorial } from '@/content/schema';
 // import step1 from './step-1.png';
 
 export default defineTutorial({
-  category: 'itrucking-pro', // itrucking-pro | onramp | efs-cards | tire-discount (см. src/content/categories.ts)
+  category: 'pumpprice', // pumpprice | onramp | onramp-app | efs-cards | tire-discount (см. src/content/categories.ts)
   order: 100, // место в списке: меньше — выше
   title: { ru: 'Название туториала', en: 'Tutorial title' },
   description: { ru: 'Короткое описание для карточки', en: 'Short description for the card' },
   // cover: { ru: coverRu, en: coverEn }, // или одна картинка: cover: coverRu
   icon: '📘', // показывается на карточке, если нет обложки
+  // badges: [{ ru: 'Только предоплата', en: 'Prepay only' }], // дополнительный оранжевый бейдж рядом с категорией
   body: [
     {
       type: 'text',

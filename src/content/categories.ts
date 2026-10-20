@@ -1,5 +1,6 @@
-import itruckingProIcon from '@/assets/categories/itrucking-pro.png';
+import pumppriceIcon from '@/assets/categories/pumpprice.png';
 import onrampIcon from '@/assets/categories/onramp.png';
+import { typographLocalized } from '@/lib/typography';
 import type { Localized } from './schema';
 
 export interface Category {
@@ -12,23 +13,28 @@ export interface Category {
 /** Порядок здесь = порядок кнопок фильтра на главной. */
 export const categories = [
   {
-    id: 'itrucking-pro',
-    name: { ru: 'iTrucking Pro', en: 'iTrucking Pro' },
-    icon: { image: itruckingProIcon },
+    id: 'pumpprice',
+    name: { ru: 'PumpPrice', en: 'PumpPrice' },
+    icon: { image: pumppriceIcon },
   },
   {
     id: 'onramp',
-    name: { ru: 'OnRamp', en: 'OnRamp' },
+    name: { ru: 'OnRamp Fleet Dashboard', en: 'OnRamp Fleet Dashboard' },
+    icon: { image: onrampIcon },
+  },
+  {
+    id: 'onramp-app',
+    name: { ru: 'OnRamp Mobile App', en: 'OnRamp Mobile App' },
     icon: { image: onrampIcon },
   },
   {
     id: 'efs-cards',
-    name: { ru: 'Использование карт EFS', en: 'Using EFS Cards Tutorial' },
+    name: typographLocalized({ ru: 'Использование карт EFS', en: 'Using EFS Cards Tutorial' }),
     icon: { emoji: '💳' },
   },
   {
     id: 'tire-discount',
-    name: { ru: 'Программа скидок на шины', en: 'Tire Discount Program' },
+    name: typographLocalized({ ru: 'Программа скидок на шины', en: 'Tire Discount Program' }),
     icon: { emoji: '🚛' },
   },
 ] as const satisfies readonly Category[];

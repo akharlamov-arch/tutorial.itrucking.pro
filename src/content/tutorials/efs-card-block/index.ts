@@ -11,7 +11,7 @@ export default defineTutorial({
   order: 1,
   title: {
     ru: 'Как избежать временной блокировки карты?',
-    en: 'How to Avoid Temporary Card Blocks?',
+    en: 'How to avoid temporary card blocks?',
   },
   description: {
     ru: 'Руководство пользователей. Почему ваша топливная карта EFS может быть временно заблокирована?',
@@ -22,7 +22,6 @@ export default defineTutorial({
     en: coverEn,
   },
   readTime: 5,
-  related: ['tire-discount-register', 'tire-discount-use'],
   body: [
     {
       type: 'text',
@@ -37,7 +36,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Использование одной карты в разных штатах одновременно',
-            en: 'Using One Card in Different States Simultaneously',
+            en: 'Using one card in different states simultaneously',
           },
           blocks: [
             {
@@ -64,7 +63,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Повторная заправка на одной и той же станции (Local Drivers)',
-            en: 'Repeated Refueling at the Same Station (Local Drivers)',
+            en: 'Repeated refueling at the same station (local drivers)',
           },
           blocks: [
             {
@@ -91,7 +90,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Большое расстояние между заправками',
-            en: 'Large Distance Between Refuelings',
+            en: 'Large distance between refuelings',
           },
           blocks: [
             {
@@ -118,7 +117,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Долгий период бездействия между заправками',
-            en: 'Long Period of Inactivity Between Refuelings',
+            en: 'Long period of inactivity between refuelings',
           },
           blocks: [
             {

@@ -13,6 +13,8 @@ body {
   background: var(--bg-primary);
   color: var(--text-primary);
   line-height: 1.7;
+  /* Ровнее переносы и без одного слова на последней строке. Висячие предлоги убирает lib/typography.ts. */
+  text-wrap: pretty;
   transition: var(--transition);
   overflow-x: hidden;
 }

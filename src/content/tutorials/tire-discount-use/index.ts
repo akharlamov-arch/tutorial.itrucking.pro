@@ -8,7 +8,7 @@ export default defineTutorial({
   order: 9,
   title: {
     ru: 'Как воспользоваться скидками по дисконтной программе на шины?',
-    en: 'How to Use Tire Discount Program Benefits?',
+    en: 'How to use tire discount program benefits?',
   },
   description: {
     ru: "Пошаговая инструкция использования скидок на шины в сервисных центрах Love's и Speedco",
@@ -43,7 +43,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Идентификация участника',
-            en: 'Member Identification',
+            en: 'Member identification',
           },
           blocks: [
             {
@@ -58,7 +58,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Начало заказа',
-            en: 'Starting the Order',
+            en: 'Starting the order',
           },
           blocks: [
             {
@@ -73,7 +73,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Уточнение типа аккаунта',
-            en: 'Clarifying Account Type',
+            en: 'Clarifying account type',
           },
           blocks: [
             {
@@ -88,7 +88,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Подтверждение скидки',
-            en: 'Discount Confirmation',
+            en: 'Discount confirmation',
           },
           blocks: [
             {

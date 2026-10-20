@@ -1,7 +1,7 @@
 import { defineTutorial } from '@/content/schema';
 import coverEn from './cover-en.png';
 import coverRu from './cover-ru.png';
-import step1 from './step-1.png';
+import step1 from './step-1.jpg';
 import step2 from './step-2.png';
 import step3 from './step-3.png';
 import step4 from './step-4.png';
@@ -12,11 +12,11 @@ import step8 from './step-8.png';
 import step9 from './step-9.png';
 
 export default defineTutorial({
-  category: 'itrucking-pro',
+  category: 'pumpprice',
   order: 7,
   title: {
-    ru: 'Как установить номер Юнита и PIN вашим топливным картам в приложении iTrucking Pro? ‼️',
-    en: 'How to Set Unit Number and PIN for Your Fuel Cards in iTrucking Pro App? ‼️',
+    ru: 'Как установить номер Юнита и PIN вашим топливным картам в приложении PumpPrice? ‼️',
+    en: 'How to set unit number and PIN for your fuel cards in PumpPrice app? ‼️',
   },
   description: {
     ru: 'Следуйте этой простой инструкции, для установки номера Юнита и PIN для ваших топливных карт. (функционал доступен для компаний с 10+ траками)',
@@ -35,14 +35,14 @@ export default defineTutorial({
         {
           title: {
             ru: 'Войдите в систему',
-            en: 'Log In to the System',
+            en: 'Log in to the system',
           },
           blocks: [
             {
               type: 'text',
               text: {
-                ru: 'Войдите в систему на портале iTrucking Pro по ссылке: [itrucking.pro](https://itrucking.pro/). Нажмите кнопку "Log in to Portal" и введите свой логин и пароль, которые были высланы вам на email при регистрации профиля. Войдите со своего аккаунта "Fleet Administrator"',
-                en: 'Log in to the iTrucking Pro Portal at: [itrucking.pro](https://itrucking.pro/). Click the "Log in to Portal" button and enter your login and password that were sent to your email when your profile was registered. Use your "Fleet Administrator" account',
+                ru: 'Войдите в систему на портале PumpPrice по ссылке: [pumpprice.co](https://www.pumpprice.co/users/sign_in) и введите свой логин и пароль, которые были высланы вам на email при регистрации профиля. Войдите со своего аккаунта "Fleet Administrator"',
+                en: 'Log in to the PumpPrice Portal at: [pumpprice.co](https://www.pumpprice.co/users/sign_in) and enter your login and password that were sent to your email when your profile was registered. Use your "Fleet Administrator" account',
               },
             },
             {
@@ -53,8 +53,8 @@ export default defineTutorial({
               type: 'callout',
               variant: 'hint',
               text: {
-                ru: 'Письмо с логином и паролем было выслано вам с адреса **fuel@itrucking.pro**',
-                en: 'The email with your login and password was sent from **fuel@itrucking.pro**',
+                ru: 'Письмо с логином и паролем было выслано вам с адреса **support@pumpprice.co**',
+                en: 'The email with your login and password was sent from **support@pumpprice.co**',
               },
             },
           ],
@@ -62,7 +62,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Перейдите в раздел Fuel Cards',
-            en: 'Go to Fuel Cards Section',
+            en: 'Go to the Fuel Cards section',
           },
           blocks: [
             {
@@ -81,7 +81,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Выберите карту',
-            en: 'Select a Card',
+            en: 'Select a card',
           },
           blocks: [
             {
@@ -100,7 +100,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Откройте управление EFS картой',
-            en: 'Open EFS Card Management',
+            en: 'Open EFS card management',
           },
           blocks: [
             {
@@ -119,7 +119,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Перейдите к настройке контролей',
-            en: 'Proceed to Controls Settings',
+            en: 'Proceed to controls settings',
           },
           blocks: [
             {
@@ -138,7 +138,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Выберите тип контроля Driver ID',
-            en: 'Select Driver ID Control Type',
+            en: 'Select Driver ID control type',
           },
           blocks: [
             {
@@ -157,7 +157,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Установите PIN-код',
-            en: 'Set PIN Code',
+            en: 'Set PIN code',
           },
           blocks: [
             {
@@ -176,7 +176,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Добавьте номер юнита',
-            en: 'Add Unit Number',
+            en: 'Add unit number',
           },
           blocks: [
             {
@@ -195,7 +195,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Проверьте и сохраните',
-            en: 'Verify and Save',
+            en: 'Verify and save',
           },
           blocks: [
             {

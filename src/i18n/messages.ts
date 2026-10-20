@@ -1,16 +1,15 @@
 import type { Lang } from '@/content/schema';
+import { typograph } from '@/lib/typography';
 
 const ru = {
   siteTitle: 'Клиентский портал iTrucking | Client Portal iTrucking',
-  /** {brand} заменяется на выделенное красным «iTrucking Pro». */
+  /** {brand} заменяется на выделенное красным «iTrucking». */
   heroTitle: 'Клиентский портал {brand}',
   heroSubtitle: 'Найдите ответы на все ваши вопросы',
-  searchPlaceholder: 'Поиск туториалов...',
-  searchClear: 'Очистить поиск',
   categoriesTitle: 'Категории',
   categoryAll: 'Все',
-  noResults: 'Ничего не найдено',
-  noResultsText: 'Попробуйте изменить параметры поиска',
+  noResults: 'Здесь пока нет туториалов',
+  noResultsText: 'Выберите другую категорию',
 
   readTime: 'мин чтения',
   stepsOne: 'шаг',
@@ -66,25 +65,23 @@ const en: Messages = {
   siteTitle: 'Клиентский портал iTrucking | Client Portal iTrucking',
   heroTitle: '{brand} Client Hub',
   heroSubtitle: 'Find answers to all your questions',
-  searchPlaceholder: 'Search tutorials...',
-  searchClear: 'Clear search',
   categoriesTitle: 'Categories',
   categoryAll: 'All',
-  noResults: 'No results found',
-  noResultsText: 'Try adjusting your search parameters',
+  noResults: 'No tutorials here yet',
+  noResultsText: 'Choose another category',
 
   readTime: 'min read',
   stepsOne: 'step',
   stepsFew: 'steps',
   stepsMany: 'steps',
 
-  stepsTitle: 'Step-by-Step Guide',
+  stepsTitle: 'Step-by-step guide',
   calloutSolution: 'How to avoid this:',
   calloutTip: 'Tip:',
   calloutNote: 'Note:',
   calloutConclusion: 'Conclusion',
   downloadOn: 'Download on',
-  recommendationsTitle: 'Recommended Resources',
+  recommendationsTitle: 'Recommended resources',
 
   close: 'Close',
   zoomImage: 'Enlarge image',
@@ -121,4 +118,10 @@ const en: Messages = {
   footerCopyright: 'iTrucking Services. All rights reserved.',
 };
 
-export const messages: Record<Lang, Messages> = { ru, en };
+function withTypography(texts: Messages): Messages {
+  return Object.fromEntries(
+    Object.entries(texts).map(([key, text]) => [key, typograph(text)]),
+  ) as Messages;
+}
+
+export const messages: Record<Lang, Messages> = { ru: withTypography(ru), en: withTypography(en) };

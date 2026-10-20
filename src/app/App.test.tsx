@@ -2,6 +2,7 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router';
 import { describe, expect, it } from 'vitest';
+import { TutorialGrid } from '@/components/TutorialGrid/TutorialGrid';
 import { getTutorial } from '@/content';
 import { AppProviders, AppRoutes } from './App';
 
@@ -16,6 +17,8 @@ function renderAt(path: string) {
 }
 
 const ifta = getTutorial('ifta-report')!;
+const onrampSetup = getTutorial('onramp-account-setup')!;
+const appSetup = getTutorial('onramp-app-setup')!;
 
 describe('приложение', () => {
   it('показывает список туториалов на главной', () => {
@@ -57,17 +60,51 @@ describe('приложение', () => {
     expect(document.documentElement.lang).toBe('en');
   });
 
-  it('ищет и фильтрует по категории', async () => {
+  it('фильтрует по категории', async () => {
     const user = userEvent.setup();
     renderAt('/');
-    await user.type(screen.getByRole('searchbox'), 'несуществующий запрос');
-    expect(screen.getByText('Ничего не найдено')).toBeInTheDocument();
 
-    await user.click(screen.getByRole('button', { name: 'Очистить поиск' }));
-    await user.click(screen.getByRole('button', { name: /Программа скидок на шины/ }));
+    await user.click(screen.getByRole('button', { name: /Программа скидок на\sшины/ }));
     expect(
       screen.queryByRole('heading', { level: 3, name: ifta.title.ru }),
     ).not.toBeInTheDocument();
     expect(screen.getAllByRole('heading', { level: 3 }).length).toBeGreaterThan(0);
+
+    await user.click(screen.getByRole('button', { name: /OnRamp Fleet Dashboard/ }));
+    expect(
+      screen.getByRole('heading', {
+        level: 3,
+        name: onrampSetup.title.ru,
+      }),
+    ).toBeInTheDocument();
+    expect(
+      screen.queryByRole('heading', { level: 3, name: appSetup.title.ru }),
+    ).not.toBeInTheDocument();
+
+    await user.click(screen.getByRole('button', { name: /OnRamp Mobile App/ }));
+    expect(screen.getByRole('heading', { level: 3, name: appSetup.title.ru })).toBeInTheDocument();
+  });
+
+  it('показывает дополнительный бейдж туториала на карточке и в шапке', () => {
+    renderAt('/tutorials/onramp-payment-history');
+    const dialog = screen.getByRole('dialog');
+    expect(within(dialog).getByText('Только предоплата')).toBeInTheDocument();
+    expect(screen.getAllByText('Только предоплата').length).toBeGreaterThan(1);
+  });
+
+  it('не показывает поиск', () => {
+    renderAt('/');
+    expect(screen.queryByRole('searchbox')).not.toBeInTheDocument();
+  });
+
+  it('показывает пустое состояние, если в категории нет туториалов', () => {
+    render(
+      <AppProviders>
+        <MemoryRouter>
+          <TutorialGrid tutorials={[]} />
+        </MemoryRouter>
+      </AppProviders>,
+    );
+    expect(screen.getByText('Здесь пока нет туториалов')).toBeInTheDocument();
   });
 });

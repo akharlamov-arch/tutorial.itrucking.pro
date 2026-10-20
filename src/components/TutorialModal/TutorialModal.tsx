@@ -36,6 +36,11 @@ export function TutorialModal({ tutorial, onClose }: TutorialModalProps) {
             </h2>
             <div className={styles.meta}>
               <Badge>{getCategory(tutorial.category).name[lang]}</Badge>
+              {tutorial.badges?.map((badge) => (
+                <Badge key={badge.en} tone="highlight">
+                  {badge[lang]}
+                </Badge>
+              ))}
             </div>
           </div>
           <button type="button" className={styles.close} onClick={onClose} aria-label={t.close}>

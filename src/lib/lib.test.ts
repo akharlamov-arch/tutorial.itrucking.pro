@@ -3,12 +3,12 @@ import type { Block, Tutorial, TutorialInput } from '@/content/schema';
 import { messages } from '@/i18n/messages';
 import { pluralizeSteps } from './plural';
 import { getRecommendations } from './recommendations';
-import { filterTutorials } from './search';
 import { buildTutorial, countSteps } from './tutorial';
+import { typograph } from './typography';
 
 function make(slug: string, overrides: Partial<TutorialInput> = {}): Tutorial {
   return buildTutorial(slug, {
-    category: 'itrucking-pro',
+    category: 'pumpprice',
     order: 1,
     title: { ru: slug, en: slug },
     description: { ru: 'описание', en: 'description' },
@@ -55,34 +55,6 @@ describe('countSteps / readTime', () => {
   });
 });
 
-describe('filterTutorials', () => {
-  const list = [
-    make('ifta', { title: { ru: 'IFTA отчет', en: 'IFTA report' } }),
-    make('tires', {
-      category: 'tire-discount',
-      description: { ru: 'Скидки на шины', en: 'Tire discounts' },
-    }),
-  ];
-
-  it('ищет по названию и описанию без учёта регистра на текущем языке', () => {
-    expect(
-      filterTutorials(list, { query: 'ifta', category: 'all', lang: 'ru' }).map((t) => t.slug),
-    ).toEqual(['ifta']);
-    expect(
-      filterTutorials(list, { query: 'ШИНЫ', category: 'all', lang: 'ru' }).map((t) => t.slug),
-    ).toEqual(['tires']);
-    expect(filterTutorials(list, { query: 'шины', category: 'all', lang: 'en' })).toEqual([]);
-  });
-
-  it('фильтрует по категории', () => {
-    expect(
-      filterTutorials(list, { query: '', category: 'tire-discount', lang: 'ru' }).map(
-        (t) => t.slug,
-      ),
-    ).toEqual(['tires']);
-  });
-});
-
 describe('getRecommendations', () => {
   const a = make('a', { order: 1 });
   const b = make('b', { order: 2 });
@@ -95,12 +67,58 @@ describe('getRecommendations', () => {
     expect(getRecommendations(b, all).map((t) => t.slug)).toEqual(['c', 'a']);
   });
 
-  it('если в категории никого нет — берёт из других категорий', () => {
-    expect(getRecommendations(other, all).map((t) => t.slug)).toEqual(['a', 'b']);
+  it('не предлагает туториалы из других категорий', () => {
+    for (const tutorial of [a, b, c]) {
+      expect(getRecommendations(tutorial, all).map((t) => t.slug)).not.toContain('other');
+    }
   });
 
-  it('явный related важнее автоматического подбора', () => {
-    const withRelated = make('x', { related: ['other', 'hidden'] });
-    expect(getRecommendations(withRelated, all).map((t) => t.slug)).toEqual(['other', 'hidden']);
+  it('если туториал в категории один — рекомендаций нет', () => {
+    expect(getRecommendations(other, all)).toEqual([]);
+  });
+
+  it('явный related задаёт порядок, но только внутри категории', () => {
+    const withRelated = make('x', { order: 6, related: ['other', 'hidden', 'a'] });
+    expect(getRecommendations(withRelated, [...all, withRelated]).map((t) => t.slug)).toEqual([
+      'hidden',
+      'a',
+    ]);
+  });
+});
+
+describe('typograph', () => {
+  const NBSP = '\u00A0';
+
+  it('привязывает короткие предлоги и союзы к следующему слову', () => {
+    expect(typograph('Нажмите на кнопку и выберите в меню')).toBe(
+      `Нажмите на${NBSP}кнопку и${NBSP}выберите в${NBSP}меню`,
+    );
+    expect(typograph('Для клиентов без предоплаты')).toBe(
+      `Для${NBSP}клиентов без${NBSP}предоплаты`,
+    );
+  });
+
+  it('обрабатывает подряд идущие короткие слова и начало строки', () => {
+    expect(typograph('В меню и в отчёте')).toBe(`В${NBSP}меню и${NBSP}в${NBSP}отчёте`);
+  });
+
+  it('привязывает английские артикли и предлоги', () => {
+    expect(typograph('Click the icon to open a report')).toBe(
+      `Click the${NBSP}icon to${NBSP}open a${NBSP}report`,
+    );
+  });
+
+  it('не отрывает тире от предыдущего слова', () => {
+    expect(typograph('Отправьте коды сразу — они действуют недолго')).toBe(
+      `Отправьте коды сразу${NBSP}— они действуют недолго`,
+    );
+  });
+
+  it('не трогает разметку, ссылки и длинные слова', () => {
+    const text = 'Откройте [страницу](https://itrucking.pro/) и нажмите **«Save»**';
+    expect(typograph(text)).toBe(
+      `Откройте [страницу](https://itrucking.pro/) и${NBSP}нажмите **«Save»**`,
+    );
+    expect(typograph('Водитель заправится')).toBe('Водитель заправится');
   });
 });

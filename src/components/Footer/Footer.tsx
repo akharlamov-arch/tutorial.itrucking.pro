@@ -41,10 +41,20 @@ export function Footer() {
             >
               {site.companyUrl.replace('https://', '')}
             </a>
-            <a href="#" className={styles.link}>
+            <a
+              href={site.privacyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
               {t.footerPrivacy}
             </a>
-            <a href="#" className={styles.link}>
+            <a
+              href={site.termsUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className={styles.link}
+            >
               {t.footerTerms}
             </a>
           </div>
@@ -86,7 +96,7 @@ export function Footer() {
         </section>
       </div>
       <div className={styles.bottom}>
-        <p>&copy; 2024 {t.footerCopyright}</p>
+        <p>&copy; 2026 {t.footerCopyright}</p>
       </div>
     </footer>
   );

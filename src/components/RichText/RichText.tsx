@@ -11,13 +11,19 @@ const TUTORIAL_LINK_PREFIX = 'tutorial:';
 const ALLOWED_ELEMENTS = ['p', 'strong', 'em', 'a', 'br'];
 
 function urlTransform(url: string): string {
-  return url.startsWith(TUTORIAL_LINK_PREFIX) ? url : defaultUrlTransform(url);
+  return url.startsWith(TUTORIAL_LINK_PREFIX) || url.startsWith('tel:')
+    ? url
+    : defaultUrlTransform(url);
 }
 
 const components: Components = {
   a: ({ href = '', children }) =>
     href.startsWith(TUTORIAL_LINK_PREFIX) ? (
       <TutorialLink slug={href.slice(TUTORIAL_LINK_PREFIX.length)}>{children}</TutorialLink>
+    ) : href.startsWith('tel:') ? (
+      <a href={href} className={styles.link}>
+        {children}
+      </a>
     ) : (
       <a href={href} target="_blank" rel="noopener noreferrer" className={styles.link}>
         {children}

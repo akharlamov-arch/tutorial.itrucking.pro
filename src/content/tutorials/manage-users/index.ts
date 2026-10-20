@@ -6,7 +6,7 @@ import edit2 from './edit-2.png';
 import edit3 from './edit-3.png';
 import edit4 from './edit-4.png';
 import edit5 from './edit-5.png';
-import step1 from './step-1.png';
+import step1 from './step-1.jpg';
 import step2 from './step-2.png';
 import step2Note from './step-2-note.png';
 import step3 from './step-3.png';
@@ -15,11 +15,11 @@ import step5 from './step-5.png';
 import step6 from './step-6.png';
 
 export default defineTutorial({
-  category: 'itrucking-pro',
+  category: 'pumpprice',
   order: 5,
   title: {
-    ru: 'Как создать или изменить юзера/драйвера в приложении iTrucking Pro?',
-    en: 'How to Create or Edit User/Driver in iTrucking Pro App?',
+    ru: 'Как создать или изменить юзера/драйвера в приложении PumpPrice?',
+    en: 'How to create or edit user/driver in PumpPrice app?',
   },
   description: {
     ru: 'Следуйте этой простой инструкции, для добавления или изменения данных юзеров/драйверов для ваших топливных карт.',
@@ -37,14 +37,14 @@ export default defineTutorial({
         {
           title: {
             ru: 'Войдите в систему',
-            en: 'Log In to the System',
+            en: 'Log in to the system',
           },
           blocks: [
             {
               type: 'text',
               text: {
-                ru: 'Войдите в систему на портале **iTrucking Pro** по ссылке: [itrucking.pro](https://itrucking.pro/). Нажмите кнопку "Log in to Portal" и введите свой логин и пароль, которые были высланы вам на email при регистрации профиля',
-                en: 'Log in to the **iTrucking Pro** Portal at: [itrucking.pro](https://itrucking.pro/). Click the "Log in to Portal" button and enter your login and password that were sent to your email when your profile was registered',
+                ru: 'Войдите в систему на портале **PumpPrice** по ссылке: [pumpprice.co](https://www.pumpprice.co/users/sign_in) и введите свой логин и пароль, которые были высланы вам на email при регистрации профиля',
+                en: 'Log in to the **PumpPrice** Portal at: [pumpprice.co](https://www.pumpprice.co/users/sign_in) and enter your login and password that were sent to your email when your profile was registered',
               },
             },
             {
@@ -55,8 +55,8 @@ export default defineTutorial({
               type: 'callout',
               variant: 'hint',
               text: {
-                ru: 'Письмо с логином и паролем было выслано вам с адреса **fuel@itrucking.pro**',
-                en: 'The email with your login and password was sent from **fuel@itrucking.pro**',
+                ru: 'Письмо с логином и паролем было выслано вам с адреса **support@pumpprice.co**',
+                en: 'The email with your login and password was sent from **support@pumpprice.co**',
               },
             },
           ],
@@ -64,7 +64,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Откройте настройки',
-            en: 'Open Settings',
+            en: 'Open settings',
           },
           blocks: [
             {
@@ -95,7 +95,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Перейдите в раздел Users',
-            en: 'Go to Users Section',
+            en: 'Go to the Users section',
           },
           blocks: [
             {
@@ -114,7 +114,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Добавьте нового пользователя',
-            en: 'Add New User',
+            en: 'Add new user',
           },
           blocks: [
             {
@@ -133,7 +133,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Заполните данные пользователя',
-            en: 'Fill in User Details',
+            en: 'Fill in user details',
           },
           blocks: [
             {
@@ -160,14 +160,14 @@ export default defineTutorial({
         {
           title: {
             ru: 'Сохраните пользователя',
-            en: 'Save User',
+            en: 'Save user',
           },
           blocks: [
             {
               type: 'text',
               text: {
-                ru: 'После введения всех данных нажмите кнопку "Save User". После этого пользователю автоматически придет письмо на указанный электронный адрес с инструкциями как зайти в приложение iTrucking Pro.',
-                en: 'After entering all the data, click the "Save User" button. After this, the user will automatically receive an email at the specified address with instructions on how to log in to the iTrucking Pro app.',
+                ru: 'После введения всех данных нажмите кнопку "Save User". После этого пользователю автоматически придет письмо на указанный электронный адрес с инструкциями как зайти в приложение PumpPrice.',
+                en: 'After entering all the data, click the "Save User" button. After this, the user will automatically receive an email at the specified address with instructions on how to log in to the PumpPrice app.',
               },
             },
             {
@@ -191,13 +191,13 @@ export default defineTutorial({
       variant: 'secondary',
       title: {
         ru: 'Редактирование пользователей',
-        en: 'Editing Users',
+        en: 'Editing users',
       },
       items: [
         {
           title: {
             ru: 'Редактирование пользователя',
-            en: 'Editing a User',
+            en: 'Editing a user',
           },
           blocks: [
             {
@@ -216,7 +216,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Изменение информации',
-            en: 'Changing Information',
+            en: 'Changing information',
           },
           blocks: [
             {
@@ -235,7 +235,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Установка роли',
-            en: 'Setting Role',
+            en: 'Setting role',
           },
           blocks: [
             {
@@ -254,7 +254,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Изменение пароля',
-            en: 'Changing Password',
+            en: 'Changing password',
           },
           blocks: [
             {
@@ -273,7 +273,7 @@ export default defineTutorial({
         {
           title: {
             ru: 'Дополнительные действия',
-            en: 'Additional Actions',
+            en: 'Additional actions',
           },
           blocks: [
             {
@@ -295,8 +295,8 @@ export default defineTutorial({
       type: 'callout',
       variant: 'conclusion',
       text: {
-        ru: 'Готово! Вы успешно создали/изменили юзеров-драйверов в вашем аккаунте iTrucking Pro.',
-        en: 'Done! You have successfully created/edited user-drivers in your iTrucking Pro account.',
+        ru: 'Готово! Вы успешно создали/изменили юзеров-драйверов в вашем аккаунте PumpPrice.',
+        en: 'Done! You have successfully created/edited user-drivers in your PumpPrice account.',
       },
     },
   ],

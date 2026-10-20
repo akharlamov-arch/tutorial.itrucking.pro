@@ -2,80 +2,23 @@
   max-width: var(--container);
   margin: 3rem auto;
   padding: 0 2rem;
+  text-align: center;
   animation: fadeInUp 0.6s ease-out 0.2s both;
 }
 
-.heading {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.heading h1 {
+.hero h1 {
   font-size: 3rem;
   margin-bottom: 0.5rem;
   color: var(--text-primary);
 }
 
-.heading p {
+.hero p {
   color: var(--text-secondary);
   font-size: 1.125rem;
 }
 
 .brand {
   color: var(--brand-red);
-}
-
-.searchBox {
-  position: relative;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-.input {
-  width: 100%;
-  padding: 1rem 3rem 1rem 1.5rem;
-  font-size: 1rem;
-  border: 2px solid var(--border);
-  border-radius: var(--radius);
-  background: var(--bg-secondary);
-  color: var(--text-primary);
-  transition: var(--transition);
-  appearance: none;
-}
-
-/* Убираем встроенный крестик браузера у type="search" — у нас свой. */
-.input::-webkit-search-cancel-button {
-  appearance: none;
-}
-
-.input:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px rgba(0, 102, 255, 0.1);
-}
-
-.icon {
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--text-tertiary);
-  pointer-events: none;
-  transition: var(--transition);
-}
-
-.clear {
-  display: flex;
-  padding: 0;
-  border: none;
-  background: none;
-  cursor: pointer;
-  pointer-events: auto;
-  color: var(--text-secondary);
-}
-
-.clear:hover {
-  color: var(--accent);
 }
 
 @keyframes fadeInUp {
@@ -95,12 +38,12 @@
     padding: 0 1.5rem;
   }
 
-  .heading h1 {
+  .hero h1 {
     font-size: 1.75rem;
     line-height: 1.2;
   }
 
-  .heading p {
+  .hero p {
     font-size: 0.95rem;
   }
 }

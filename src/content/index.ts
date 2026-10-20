@@ -1,4 +1,5 @@
-import { buildTutorial } from '@/lib/tutorial';
+import { buildTutorial, mapTexts } from '@/lib/tutorial';
+import { typographLocalized } from '@/lib/typography';
 import type { Tutorial, TutorialInput } from './schema';
 
 // Каждая папка в tutorials/ (кроме _template) — один туториал. Регистрировать вручную не нужно.
@@ -14,7 +15,7 @@ function slugFromPath(path: string): string {
 }
 
 export const tutorials: Tutorial[] = Object.entries(modules)
-  .map(([path, input]) => buildTutorial(slugFromPath(path), input))
+  .map(([path, input]) => buildTutorial(slugFromPath(path), mapTexts(input, typographLocalized)))
   .sort((a, b) => a.order - b.order);
 
 export function getTutorial(slug: string | undefined): Tutorial | undefined {

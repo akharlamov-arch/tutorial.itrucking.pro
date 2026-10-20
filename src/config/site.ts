@@ -5,10 +5,11 @@ export const site = {
   url: 'https://tutorial.itrucking.pro',
   portalUrl: 'https://itrucking.pro/',
   companyUrl: 'https://www.itruckingservices.com',
+  privacyUrl: 'https://itrucking.pro/legal/privacy',
+  termsUrl: 'https://itrucking.pro/legal/terms',
 
-  // TODO: на текущем сайте у кнопок App Store / Google Play стоит "#". Вставьте реальные ссылки.
-  appStoreUrl: '#',
-  googlePlayUrl: '#',
+  appStoreUrl: 'https://apps.apple.com/us/app/pumpprice/id1670283070',
+  googlePlayUrl: 'https://play.google.com/store/apps/details?id=com.fuelanalytics.bakerstreet',
 
   phones: [
     { label: 'footerMainPhone', display: '+1 (916) 269-4606', href: 'tel:+19162694606' },
