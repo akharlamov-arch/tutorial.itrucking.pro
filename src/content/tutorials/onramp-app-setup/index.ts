@@ -77,8 +77,8 @@ export default defineTutorial({
                   en: '**Username:** the email address this message was sent to',
                 },
                 {
-                  ru: '**Временный пароль:** последние 4 цифры вашего номера телефона',
-                  en: '**Temporary password:** the last 4 digits of your phone number',
+                  ru: '**Временный пароль:** указан в этом же письме',
+                  en: '**Temporary password:** it’s in the same email',
                 },
               ],
             },
@@ -87,14 +87,6 @@ export default defineTutorial({
               text: {
                 ru: 'Затем нажмите ссылку для своего телефона: **«Android download»** или **«iOS download»**. Откроется Google Play или App Store — там установите **ONRAMP FuelPay**.',
                 en: 'Then tap the link for your phone, **“Android download”** or **“iOS download”**. It opens Google Play or the App Store, where you install **ONRAMP FuelPay**.',
-              },
-            },
-            {
-              type: 'callout',
-              variant: 'tip',
-              text: {
-                ru: 'Пример: если ваш номер телефона (916) 555-0147, временный пароль — **0147**.',
-                en: 'Example: if your phone number is (916) 555-0147, your temporary password is **0147**.',
               },
             },
             { type: 'image', src: step2 },
@@ -135,8 +127,8 @@ export default defineTutorial({
             {
               type: 'text',
               text: {
-                ru: 'В поле **«Password»** введите последние 4 цифры вашего номера телефона. Затем нажмите **«Sign In»**.\n\nДальше приложение попросит придумать свой пароль. Так и должно быть.',
-                en: 'In **“Password”**, type the last 4 digits of your phone number. Then tap **“Sign In”**.\n\nNext, the app asks you to choose your own password. That’s expected.',
+                ru: 'В поле **«Password»** введите временный пароль из письма. Затем нажмите **«Sign In»**.\n\nДальше приложение попросит придумать свой пароль. Так и должно быть.',
+                en: 'In **“Password”**, type the temporary password from the email. Then tap **“Sign In”**.\n\nNext, the app asks you to choose your own password. That’s expected.',
               },
             },
             { type: 'image', src: step5, size: 'small' },
